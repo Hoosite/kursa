@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block sidebar %}
+    <div class="sidebar-content">
+        <p>Имя: {{ stud.name }}</p> 
+        <p>Фамилия: {{ stud.surname }}</p> 
+        <p>Факультет: {{ stud.faculty }}</p> 
+        <p>Напрвление: {{ stud.speciality }}</p> 
+        <p>Курс: {{ stud.course }}</p> 
+        <p>Группа: {{ stud.group }}</p> 
+        <p>№ студенческого: {{ stud.studak }}</p> 
+    </div>
+{% endblock %}

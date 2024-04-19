@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <!-- Картинка здесь -->
+        </div>
+    </header>
+
+    <!-- Горизонтальное меню -->
+    <div class="horizontal-menu">
+        <ul>
+            <li><a href="{{ url_for('me.mes') }}" class="menu_item">Профиль</a></li>
+            <li><a href="{{ url_for('syllabus.syllabuss') }}" class="menu_item">Учебный план</a></li>
+            <li><a href="{{ url_for('schedule.display_schedule') }}" class="menu_item">Просмотр расписания</a></li>
+            <li><a href="{{ url_for('mark.marks') }}" class="menu_item">Оценки</a></li>
+            <li><a href="{{ url_for('order.orders') }}" class="menu_item">Приказы</a></li>
+            <li><a href="{{ url_for('skip.skips') }}" class="menu_item">Пропущенные занятия</a></li>
+            <li><a href="{{ url_for('about.abouts') }}" class="menu_item orange">О ресурсе</a></li>
+        </ul>
+    </div>
+
+    <div class="sidebar">
+        {% block sidebar %}
+        {% endblock %}
+    </div>
+  
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#menu a.menu_item').click(function(e) {
+                var href = $(this).attr('href');
+                if (href === '#!') {
+                    e.preventDefault(); // Предотвращаем переход по ссылке
+                } else {
+                    // Отправляем AJAX-запрос на сервер для загрузки данных
+                    $.ajax({
+                        url: href,
+                        type: 'GET',
+                        success: function(response) {
+                            // Обновляем содержимое боковой панели с данными
+                            $('.sidebar').html(response);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

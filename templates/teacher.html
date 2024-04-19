@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <div class="head">
+            <div class="ico"><a href="/teacher"><img src="{{ url_for('static', filename='image/сур.png') }}"></a></div>
+        </div>
+    </header>
+
+    <ul id="menu">
+        <li><a href="{{ url_for('me') }}" class="menu_item"></span><span class="menu__text">Профиль</span></a></li>
+        <li><a href="{{ url_for('schedule') }}" class="menu_item"></span><span class="menu__text">Расписание</span></a></li>
+        <li><a href="{{ url_for('mark') }}" class="menu_item"></span><span class="menu__text">Оценки студентов</span></a></li>
+        <li><a href="{{ url_for('skip') }}" class="menu_item"></span><span class="menu__text">Пропущенные занятия студентов</span></a></li>
+        <li><a href="{{ url_for('about') }}" class="menu_item"></span><span class="menu__text">О ресурсе</span></a></li>
+    </ul>
+
+    <div class="sidebar">
+        {% block sidebar %}
+        {% endblock %}
+    </div>
+  
+    
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+  
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#menu a.menu_item').click(function (e) {
+                var href = $(this).attr('href');
+
+                if (href === '#!') {
+                    e.preventDefault(); // Предотвращаем переход по ссылке
+
+                   
+                } else {
+                    // Отправляем AJAX-запрос на сервер для загрузки данных
+                    $.ajax({
+                        url: href,
+                        type: 'GET',
+                        success: function (response) {
+                            // Обновляем содержимое боковой панели с данными
+                            $('.sidebar').html(response);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

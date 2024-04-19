@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="schedule-table">
+    <h1>Расписание для группы 1223:</h1>
+    <table>
+        <tr>
+            <th>День недели</th>
+            <th>Пара</th>
+            <th>Время начала</th>
+            <th>Название предмета</th>
+            <th>Номер аудитории</th>
+        </tr>
+        {% for day, day_schedule in schedule_group1.items() %}
+            {% for pair, details in day_schedule.items() %}
+            <tr>
+                <td>{{ day }}</td>
+                <td>{{ pair }}</td>
+                <td>{{ details['time_start'] }}</td>
+                <td>{{ details['subject'] }}</td>
+                <td>{{ details['room'] }}</td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+
+    <h1>Расписание для группы 1227:</h1>
+    <table>
+        <tr>
+            <th>День недели</th>
+            <th>Пара</th>
+            <th>Время начала</th>
+            <th>Название предмета</th>
+            <th>Номер аудитории</th>
+        </tr>
+        {% for day, day_schedule in schedule_group2.items() %}
+            {% for pair, details in day_schedule.items() %}
+            <tr>
+                <td>{{ day }}</td>
+                <td>{{ pair }}</td>
+                <td>{{ details['time_start'] }}</td>
+                <td>{{ details['subject'] }}</td>
+                <td>{{ details['room'] }}</td>
+            </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

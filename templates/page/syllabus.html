@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+
+{% block sidebar %}
+<div class="sidebar-content">
+    <table class="plan-table">
+        <thead>
+            <tr>
+                <th>Экзамены</th>
+                <th>Преподаватель</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in esub %}
+                {% if el.status == 'экзамен' %}
+                    <tr>
+                        <td>{{ el.name }}</td>
+                        <td>{{ el.teacher }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <table class="plan-table">
+        <thead>
+            <tr>
+                <th>Зачет</th>
+                <th>Преподаватель</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in esub %}
+                {% if el.status == 'зачет' %}
+                    <tr>
+                        <td>{{ el.name }}</td>
+                        <td>{{ el.teacher }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="plan-table">
+        <thead>
+            <tr>
+                <th>Зачет с оценкой</th>
+                <th>Преподаватель</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in esub %}
+                {% if el.status == 'зачет с оценкой' %}
+                    <tr>
+                        <td>{{ el.name }}</td>
+                        <td>{{ el.teacher }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

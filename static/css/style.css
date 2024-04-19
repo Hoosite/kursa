@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Стили для горизонтального меню */
+.horizontal-menu {
+  background-color: #3c218c;
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+  padding: 10px 0;
+}
+
+.horizontal-menu ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+.horizontal-menu ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.horizontal-menu ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.horizontal-menu ul li a:hover {
+  background-color: #ff6b00;
+}
+
+.orange {
+  background-color: #ff6b00;
+}
+
+  .space {
+    height: 200px; 
+    width: 160px;
+    background-color: #3c218c; 
+  }
+
+ /* Стили для таблиц */
+/* Стили для первой таблицы */
+#first-table {
+  border-collapse: collapse;
+  width: 70%;
+  float: right;
+  
+  margin-bottom: 60%;
+  margin-top: -60%;
+}
+
+#first-table th,
+#first-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+
+  /* Установка разрыва страницы перед таблицей */
+  page-break-before: always;
+}
+
+/* Стили для второй таблицы */
+#second-table {
+  border-collapse: collapse;
+  width: 70%;
+  float: right;
+  margin-bottom: 60%;
+  margin-top: -60%;
+}
+
+#second-table th,
+#second-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+
+  /* Установка разрыва страницы перед таблицей */
+  page-break-before: always;
+}
+
+/* Стили для таблицы расписания */
+.schedule-table {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.plan-table {
+  border-collapse: collapse;
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+.plan-table th, .plan-table td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+.plan-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.plan-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.plan-table tr:hover {
+  background-color: #f1f1f1;
+}
