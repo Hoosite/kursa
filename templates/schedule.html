@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="schedule-table">
-    <h1>Расписание для группы 1223:</h1>
+    <h1 class="text-center">Расписание для группы 1223:</h1>
     <table>
         <tr>
             <th>День недели</th>
@@ -16,15 +16,15 @@
             <tr>
                 <td>{{ day }}</td>
                 <td>{{ pair }}</td>
-                <td>{{ details['time_start'] }}</td>
-                <td>{{ details['subject'] }}</td>
-                <td>{{ details['room'] }}</td>
+                <td>{% if details['time_start'] is not none %} {{ details['time_start'] }} {% else %} {% endif %}</td>
+                <td>{% if details['subject'] is not none %} {{ details['subject'] }} {% else %} {% endif %}</td>
+                <td>{% if details['room'] is not none %} {{ details['room'] }} {% else %} {% endif %}</td>
             </tr>
             {% endfor %}
         {% endfor %}
     </table>
 
-    <h1>Расписание для группы 1227:</h1>
+    <h1 class="text-center">Расписание для группы 1227:</h1>
     <table>
         <tr>
             <th>День недели</th>
@@ -38,9 +38,9 @@
             <tr>
                 <td>{{ day }}</td>
                 <td>{{ pair }}</td>
-                <td>{{ details['time_start'] }}</td>
-                <td>{{ details['subject'] }}</td>
-                <td>{{ details['room'] }}</td>
+                <td>{% if details['time_start'] is not none %} {{ details['time_start'] }} {% else %} {% endif %}</td>
+                <td>{% if details['subject'] is not none %} {{ details['subject'] }} {% else %} {% endif %}</td>
+                <td>{% if details['room'] is not none %} {{ details['room'] }} {% else %} {% endif %}</td>
             </tr>
             {% endfor %}
         {% endfor %}
