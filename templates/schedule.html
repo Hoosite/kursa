@@ -1,8 +1,29 @@
 {% extends 'index.html' %}
 
+{% block sidebar %}
+<div class="schedule-group-selection">
+    <h1 class="text-center">Выберите группу для просмотра расписания:</h1>
+    <form method="GET" action="{{ url_for('schedule.display_schedule') }}">
+        <button type="submit" name="group" value="1211_1212">1211_1212</button>
+        <button type="submit" name="group" value="1213_1217">1213_1217</button>
+        <button type="submit" name="group" value="1221_1222">1221_1222</button>
+        <button type="submit" name="group" value="1223_1227">1223_1227</button>
+        <button type="submit" name="group" value="1231_1233">1231_1233</button>
+        <button type="submit" name="group" value="1234_1237">1234_1237</button>
+        <button type="submit" name="group" value="1241">1241</button>
+        <button type="submit" name="group" value="1243_1247">1243_1247</button>
+        <button type="submit" name="group" value="1251">1251</button>
+        <button type="submit" name="group" value="М1217">М1217</button>
+        <button type="submit" name="group" value="М1213">М1213</button>
+    </form>
+</div>
+{% endblock %}
+
+
+
 {% block content %}
 <div class="schedule-table">
-    <h1 class="text-center">Расписание для группы 1223:</h1>
+    <h1 class="text-center">Расписание для группы {{ selected_group }}:</h1>
     <table>
         <tr>
             <th>День недели</th>
@@ -24,7 +45,7 @@
         {% endfor %}
     </table>
 
-    <h1 class="text-center">Расписание для группы 1227:</h1>
+    <h1 class="text-center">Расписание для группы {{ selected_group }}:</h1>
     <table>
         <tr>
             <th>День недели</th>
